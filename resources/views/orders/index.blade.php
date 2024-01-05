@@ -100,7 +100,7 @@
                 <ul>
                     <li><a href="{{ route('restaurants.index') }}">Isteigos</a></li>
                     <li><a href="{{ route('meniu.index') }}">Valgiaraštis</a></li>
-                    <li><a href="#">Produktai</a></li>
+                    <li><a href="{{ route('products.index') }}">Produktai</a></li>
                     <li><a href="{{ route('orders.index') }}">Užsakymai</a></li>
                 </ul>
             </nav>

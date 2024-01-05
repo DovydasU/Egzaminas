@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::resource('restaurants', RestaurantsController::class);
+    Route::resource('products', ProductsController::class);
     Route::resource('meniu', MeniulistsController::class);
     Route::resource('orders', OrdersController::class);
     Route::get('/', [HomeController::class, 'index'])->name('restaurants');

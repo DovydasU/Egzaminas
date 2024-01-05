@@ -9,7 +9,7 @@
 <body>
 
 <div class="container mt-5">
-    <h2 class="mb-4">Restaurant Information</h2>
+    <h2 class="mb-4">isteigos</h2>
 
     <!-- Restaurant Boxes -->
     <div class="row">
@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->name }}</h5>
                     <p class="card-text">{{ $item->description }}</p>
-                    <a href="{{ route('menius', ['id' => $item->id]) }}" class="btn btn-primary">Meniu ir Produktai</a>
+                    <a href="{{ route('menius', ['id' => $item->id]) }}" class="btn btn-primary">Valgiaraštis ir Produktai</a>
                 </div>
             </div>
         </div>

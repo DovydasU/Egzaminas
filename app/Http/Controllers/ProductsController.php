@@ -21,7 +21,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        // return view('products.create');
     }
 
     /**
@@ -30,18 +30,18 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         // Validate the request
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'required',
-            'active' => 'boolean',
-            // Add any other validation rules as needed
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'price' => 'required|numeric',
+        //     'description' => 'required',
+        //     'active' => 'boolean',
+        //     // Add any other validation rules as needed
+        // ]);
 
-        // Create a new product
-        Products::create($request->all());
+        // // Create a new product
+        // Products::create($request->all());
 
-        return redirect()->route('products.index')->with('success', 'Product created successfully');
+        // return redirect()->route('products.index')->with('success', 'Product created successfully');
     }
 
     /**
@@ -49,7 +49,7 @@ class ProductsController extends Controller
      */
     public function edit(Products $product)
     {
-        return view('products.edit', compact('product'));
+        // return view('products.edit', compact('product'));
     }
 
     /**
@@ -58,18 +58,18 @@ class ProductsController extends Controller
     public function update(Request $request, Products $product)
     {
         // Validate the request
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'description' => 'required',
-            'active' => 'boolean',
-            // Add any other validation rules as needed
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'price' => 'required|numeric',
+        //     'description' => 'required',
+        //     'active' => 'boolean',
+        //     // Add any other validation rules as needed
+        // ]);
 
-        // Update the product
-        $product->update($request->all());
+        // // Update the product
+        // $product->update($request->all());
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully');
+        // return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -77,7 +77,7 @@ class ProductsController extends Controller
      */
     public function destroy(Products $product)
     {
-        $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully');
+        // $product->delete();
+        // return redirect()->route('products.index')->with('success', 'Product deleted successfully');
     }
 }

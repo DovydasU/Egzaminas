@@ -19,7 +19,7 @@
     <ul>
         @foreach ($products as $product)
             <li>{{ $product->name }}</li>
-            <li><img src="images/product/{{ $product->image }}" style="width: 50px; height: 50px;"></li>
+            <li><img src="{{ asset('images/product/' . $product->image) }}" style="max-width: 50px; max-height: 50px;"></li>
             <li>{{ $product->price }}</li>
             <li>{{ $product->description }}</li>
             <br>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Restaurant List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Products</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -106,51 +106,49 @@
             </nav>
         </div>
     </header>
-    <div class="container">
-        <h1>Restaurant List</h1>
 
-        <a href="{{ route('restaurants.create') }}">Create Restaurant</a>
+    <div class="container mt-5">
+        <h1>Products</h1>
 
-        <table>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <table class="table mt-3">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Image</th>
-                    <th>Working Time</th>
-                    <th>Closing Time</th>
+                    <th>Price</th>
                     <th>Description</th>
-                    <th>Actions</th>
+                    <th>Active</th>
+                    <th>Image</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($restaurants as $restaurant)
+                @foreach($products as $product)
                     <tr>
-                        <td>{{ $restaurant->id }}</td>
-                        <td>{{ $restaurant->name }}</td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>${{ $product->price }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->active ? 'Yes' : 'No' }}</td>
                         <td>
-                            @if($restaurant->image)
-                                <img src="{{ asset('images/restaurants/' . $restaurant->image) }}" style="max-width: 100px; max-height: 100px;">
+                            @if($product->image)
+                                <img src="{{ asset('images/product/' . $product->image) }}" style="max-width: 50px; max-height: 50px;">
                             @else
                                 No Image
                             @endif
-                        </td>
-                        <td>{{ $restaurant->working_time }}</td>
-                        <td>{{ $restaurant->closing_time }}</td>
-                        <td>{{ $restaurant->description }}</td>
-                        <td>
-                            <a href="{{ route('restaurants.edit', $restaurant->id) }}">Edit</a>
-                            <form method="POST" action="{{ route('restaurants.destroy', $restaurant->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit">Delete</button>
-                            </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
